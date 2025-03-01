@@ -96,13 +96,24 @@ public class Professor {
 
     @Override
     public String toString() {
-        return "Professor{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", department='" + department + '\'' +
-                ", title='" + title + '\'' +
-                ", taughtCourses=" + taughtCourses +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Professor Details:\n");
+        sb.append("  ID: ").append(id).append("\n");
+        sb.append("  Name: ").append(name).append("\n");
+        sb.append("  Email: ").append(email).append("\n");
+        sb.append("  Department: ").append(department).append("\n");
+        sb.append("  Title: ").append(title).append("\n");
+        sb.append("  Taught Courses: ");
+
+        if (taughtCourses.isEmpty()) {
+            sb.append("None\n");
+        } else {
+            sb.append("\n");
+            for (Course course : taughtCourses) {
+                sb.append("    - ").append(course.getName()).append("\n");
+            }
+        }
+
+        return sb.toString();
     }
 }

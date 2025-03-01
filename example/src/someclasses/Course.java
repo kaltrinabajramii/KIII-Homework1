@@ -63,12 +63,14 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", creditHours=" + creditHours +
-                ", semester=" + semester +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Course Details:\n");
+        sb.append("  ID: ").append(id).append("\n");
+        sb.append("  Name: ").append(name).append("\n");
+        sb.append("  Description: ").append(description).append("\n");
+        sb.append("  Credit Hours: ").append(creditHours).append("\n");
+        sb.append("  Semester: ").append(semester != null ? semester.getName() : "Not assigned").append("\n");
+
+        return sb.toString();
     }
 }

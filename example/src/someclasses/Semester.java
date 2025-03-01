@@ -90,11 +90,23 @@ public class Semester {
 
     @Override
     public String toString() {
-        return "Semester{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Semester Details:\n");
+        sb.append("  ID: ").append(id).append("\n");
+        sb.append("  Name: ").append(name).append("\n");
+        sb.append("  Start Date: ").append(startDate).append("\n");
+        sb.append("  End Date: ").append(endDate).append("\n");
+        sb.append("  Courses: ");
+
+        if (courses.isEmpty()) {
+            sb.append("None\n");
+        } else {
+            sb.append("\n");
+            for (Course course : courses) {
+                sb.append("    - ").append(course.getName()).append("\n");
+            }
+        }
+
+        return sb.toString();
     }
 }

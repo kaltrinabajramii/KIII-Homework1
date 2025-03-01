@@ -68,11 +68,22 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", enrolledCourses=" + enrolledCourses +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Student Details:\n");
+        sb.append("  ID: ").append(id).append("\n");
+        sb.append("  Name: ").append(name).append("\n");
+        sb.append("  Email: ").append(email).append("\n");
+        sb.append("  Enrolled Courses: ");
+
+        if (enrolledCourses.isEmpty()) {
+            sb.append("None\n");
+        } else {
+            sb.append("\n");
+            for (Course course : enrolledCourses) {
+                sb.append("    - ").append(course.getName()).append("\n");
+            }
+        }
+
+        return sb.toString();
     }
 }
