@@ -65,12 +65,14 @@ public class Exam {
 
     @Override
     public String toString() {
-        return "Exam{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", course=" + course.getName() +
-                ", examDate=" + examDate +
-                ", maxPoints=" + maxPoints +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Exam Details:\n");
+        sb.append("  ID: ").append(id).append("\n");
+        sb.append("  Name: ").append(name).append("\n");
+        sb.append("  Course: ").append(course != null ? course.getName() : "Not assigned").append("\n");
+        sb.append("  Exam Date: ").append(examDate).append("\n");
+        sb.append("  Maximum Points: ").append(maxPoints).append("\n");
+
+        return sb.toString();
     }
 }
